@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   namespace :public do
-    get 'recipes/index'
-    get 'recipes/show'
-    get 'recipes/edit'
+    resources :recipes, only: [:index, :show, :edit, :create, :update, :destroy]
   end
   # 管理用レシピ
   namespace :admin do
