@@ -1,24 +1,32 @@
-# README
+# <funny_recipe>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### サイトテーマ
+お客様たちの料理のレシピを共有しあうコミュニティーサイト
 
-Things you may want to cover:
+### テーマを選んだ理由
+「今晩の料理何にしよう？」と悩んだときに手軽に調べられ、これによりたくさんの主婦や一人暮らしの方の悩みを解決することができる。 　また、お互いに情報を共有しあって、コミュニティーが大きくなっていくと、情報面でも他のサイトに劣らないものになると考えたから。
 
-* Ruby version
+### ターゲットユーザ
+・主婦 
+・一人暮らしの方 
+・作りたいものが決まっているが、レシピがわからない方
 
-* System dependencies
+### 主な利用シーン
+・御飯時に、何を作ろうか悩んだとき 
+・作りたいものが決まっているが、レシピがわからないとき 
+・「あと一品欲しい」と思ったとき
 
-* Configuration
+## 設計書
+仕様検討中
 
-* Database creation
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
