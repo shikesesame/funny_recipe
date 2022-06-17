@@ -1,2 +1,59 @@
-<h1>Admin::Recipes#new</h1>
-<p>Find me in app/views/admin/recipes/new.html.erb</p>
+<main>
+    <body>
+        <h2>レシピ新規投稿</h2>
+        
+        <%= form_with model: @resipe, url: admin_recipes_path do |f| %>
+            <!-- 画像投稿 -->
+            <h3>料理画像</h3>
+            
+            <div class="form-group">
+                <%= f.file_field :image, accept: "image/*" %>
+            </div>
+        
+            <!-- レシピ名のフォーム -->
+            <h3>レシピ名</h3>
+            
+            <div class="form-group">
+                <%= f.text_field :name %>
+            </div>
+            
+            <!-- 材料のフォーム -->
+            <h3>料理の具材</h3>
+            
+            <div class="form-group">
+                <%= f.text_area :material, placeholder: "料理の具材を入れてください" %>
+            </div>
+            
+            <!-- レシピの説明 -->
+            <h3>レシピの説明</h3>
+            
+            <div class="form-group">
+                <%= f.text_area :explanation, placeholder: "レシピの説明を入れてください" %>
+            </div>
+            
+            <!-- 製作時間 -->
+            <h3>製作時間</h3>
+            
+            <div class="form-group">
+                <%= f.select(:time, [["5分未満",1],["15分",2],["30分",3],["45分",4],["60分",5]]) %>
+            </div>
+            
+            <!-- 料理のジャンル -->
+            <h3>料理のジャンル</h3>
+            
+            <div class="form-group">
+                <%= f.radio_button :genre, "和食" %>和食
+                <%= f.radio_button :genre, "洋食・西洋" %>洋食・西洋
+                <%= f.radio_button :genre, "中華" %>中華
+                <%= f.radio_button :genre, "その他" %>その他
+            </div>
+            
+            <div class="form-group">
+                <%= f.submit "投稿" %>
+            </div>
+            
+        <% end %>
+        
+        
+    </body>
+</main>

@@ -1,2 +1,32 @@
-<h1>Admin::Recipes#index</h1>
-<p>Find me in app/views/admin/recipes/index.html.erb</p>
+<main>
+    <body>
+        
+        <h2>レシピ一覧</h2>
+        
+        <table class="table">
+            <thead>
+                    <tr>
+                        <th>料理画像</th>
+                        <th>レシピ名</th>
+                        <th>料理のジャンル</th>
+                        <th>製作時間</th>
+                        <th></th>
+                    </tr>
+            </thead>
+            
+            <tbody>
+                <% @recipes.each do |recipe| %>
+                    <tr>
+                        <th><%= image_tag recipe.get_image %></th>
+                        <th><%= recipe.name %></th>
+                        <th><%= recipe.genre %></th>
+                        <th><%= recipe.time %></th>
+                        <th><%= link_to "詳細はこちらから", admin_recipe_path(recipe.id) %></th>
+                    </tr>
+                <% end %>
+            </tbody>
+            
+        </table>
+        
+    </body>
+</main>
