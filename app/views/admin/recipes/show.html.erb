@@ -3,7 +3,7 @@
         
         <h2>レシピ詳細</h2>
         <!-- 商品画像 -->
-        <%= image_tag @recipe.get_image(200,200) %>
+        <%= image_tag @recipe.get_image %>
         
         <table class="table">
             <tr>
@@ -23,7 +23,7 @@
             
             <tr>
                 <th>製作時間</th>
-                <td><%= @recipe.time %></td>
+                <td><%= @recipe.time %>分</td>
             </tr>
             
             <tr>
