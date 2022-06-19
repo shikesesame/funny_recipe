@@ -3,7 +3,7 @@
         
         <h2>レシピ編集</h2>
         
-        <%= form_with model: @resipe, url: admin_recipe_path(@recipe.id) do |f| %>
+        <%= form_with model: @recipe, url: admin_recipe_path(@recipe.id) do |f| %>
             <!-- 画像投稿 -->
             <h3>料理画像</h3>
             

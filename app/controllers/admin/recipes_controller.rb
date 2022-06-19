@@ -18,7 +18,7 @@ class Admin::RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.save
-    redirect_to admin_recipe_path(@recipe.id)
+    redirect_to admin_recipes_path
   end
   
   def update
@@ -30,6 +30,6 @@ class Admin::RecipesController < ApplicationController
   private
   
   def recipe_params
-    params.permit(:name, :material, :explanation, :time, :genre, :image)
+    params.require(:recipe).permit(:name, :material, :explanation, :time, :genre, :image)
   end
 end
