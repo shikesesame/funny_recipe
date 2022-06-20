@@ -1,2 +1,42 @@
-<h1>Public::Recipes#show</h1>
-<p>Find me in app/views/public/recipes/show.html.erb</p>
+<main>
+    <body>
+        
+        <h2>レシピ詳細</h2>
+        <!-- 商品画像 -->
+        <%= image_tag @recipe.get_image %>
+        
+        <table class="table">
+            <tr>
+                <th>レシピ名</th>
+                <td><%= @recipe.name %></td>
+            </tr>
+            
+            <tr>
+                <th>料理の具材</th>
+                <td><%= @recipe.material %></td>
+            </tr>
+            
+            <tr>
+                <th>レシピの説明</th>
+                <td><%= @recipe.explanation %></td>
+            </tr>
+            
+            <tr>
+                <th>製作時間</th>
+                <td><%= @recipe.time %>分</td>
+            </tr>
+            
+            <tr>
+                <th>料理のジャンル</th>
+                <td><%= @recipe.genre %></td>
+            </tr>
+            
+        </table>
+        
+        <%= link_to "編集", edit_public_recipe_path(@recipe.id) %> |
+        <%= link_to "レシピ一覧", public_recipes_path %>
+        
+        <%= render "recipe", obj: @recipe %>
+        
+    </body>
+</main>
