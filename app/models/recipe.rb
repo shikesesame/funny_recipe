@@ -1,4 +1,5 @@
 class Recipe < ApplicationRecord
+    # 画像情報
     has_one_attached :image
     
     def get_image
@@ -8,4 +9,7 @@ class Recipe < ApplicationRecord
         end
         image
     end
+    
+    # アソシエーション
+    belongs_to :customer
 end

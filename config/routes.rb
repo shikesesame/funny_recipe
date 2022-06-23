@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   namespace :public do
     resources :recipes, only: [:index, :show, :edit, :create, :update, :destroy]
+    resources :customers, only: [:index, :show, :edit, :update]
   end
   # 管理用レシピ
   namespace :admin do
@@ -20,4 +21,8 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  root to: 'homes#top'
+  get "/homes/about" => "homes#about", as: 'about'
+  
 end
