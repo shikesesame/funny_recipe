@@ -3,7 +3,7 @@
   <div class="container px-5 px-sm-0">
     <div class="row">
 
-      <%= render 'public/recipes/recipe', recipe: @recipe %>
+      <%= render 'public/recipes/recipe', recipe: @recipe, customer: @customer %>
 
       <div class="col-md-8 offset-md-1">
           <h2>Customers</h2>
@@ -20,8 +20,8 @@
               <tbody>
                 <% @customers.each do |customer| %>
                     <tr>
-                        <td><div class="attachment customer image"><%= image_tag customer.get_image, size: "50x50" %></div></td>
-                        <td><%= customer.email %></td>
+                        <td><div class="attachment customer image"><%= image_tag customer.get_image, size: "100x100" %></div></td>
+                        <td><%= customer.name %></td>
                         <td><%= link_to "ユーザー詳細", public_customer_path(customer.id) %></td>
                     </tr>
                 <% end %>

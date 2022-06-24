@@ -1,6 +1,8 @@
 <main>
     <body>
         
+        <%= render 'public/recipes/recipe', recipe: @recipe, customer: @customer %>
+        
         <h2>レシピ詳細</h2>
         <!-- 商品画像 -->
         <%= image_tag @recipe.get_image %>
@@ -36,7 +38,6 @@
         <%= link_to "編集", edit_public_recipe_path(@recipe.id) %> |
         <%= link_to "レシピ一覧", public_recipes_path %>
         
-        <%= render "recipe", obj: @recipe %>
         
     </body>
 </main>

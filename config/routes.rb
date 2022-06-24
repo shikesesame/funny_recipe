@@ -25,4 +25,10 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get "/homes/about" => "homes#about", as: 'about'
   
+  # 退会確認画面
+  get '/customers/:id/unsubscribe' => 'public/customers#unsubscribe', as: 'customer_unsubscribe'
+  # 論理削除用のルーティング
+  patch '/customers/:id/withdrawal' => 'public/customers#withdrawal', as: 'customers_withdrawal'
+
+  
 end

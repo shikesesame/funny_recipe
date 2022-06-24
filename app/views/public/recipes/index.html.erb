@@ -1,6 +1,8 @@
 <main>
     <body>
         
+        <%= render 'public/recipes/recipe', recipe: @recipe, customer: @customer %>
+        
         <h2>レシピ一覧</h2>
         
         <table class="table">
@@ -29,6 +31,5 @@
         </table>
         
         
-        <%= render "recipe", obj: @recipe %>
     </body>
 </main>

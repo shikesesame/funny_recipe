@@ -18,4 +18,9 @@ class Customer < ApplicationRecord
   # アソシエーション 
   has_many :recipes, dependent: :destroy
   
+  # is_deletedがfalseならtrueを返すようにしている
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
+  
 end
