@@ -1,0 +1,8 @@
+<% if recipe.errors.any? %>
+<h3><%= recipe.errors.count %>errors prohibited this obj from being saved:</h3>
+<ul>
+    <% recipe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+</ul>
+<% end %>

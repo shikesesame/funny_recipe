@@ -1,43 +1,50 @@
 <main>
-    <body>
+    <%= flash[:notice] %>
+    <p id="notice"></p>
+        <div class="container px-5 px-sm-0">
+        <div class="row">
         
-        <%= render 'public/recipes/recipe', recipe: @recipe, customer: @customer %>
-        
-        <h2>レシピ詳細</h2>
-        <!-- 商品画像 -->
-        <%= image_tag @recipe.get_image %>
-        
-        <table class="table">
-            <tr>
-                <th>レシピ名</th>
-                <td><%= @recipe.name %></td>
-            </tr>
+            <%= render 'public/recipes/recipe', recipe: @recipe, customer: @customer %>
             
-            <tr>
-                <th>料理の具材</th>
-                <td><%= @recipe.material %></td>
-            </tr>
-            
-            <tr>
-                <th>レシピの説明</th>
-                <td><%= @recipe.explanation %></td>
-            </tr>
-            
-            <tr>
-                <th>製作時間</th>
-                <td><%= @recipe.time %>分</td>
-            </tr>
-            
-            <tr>
-                <th>料理のジャンル</th>
-                <td><%= @recipe.genre %></td>
-            </tr>
-            
-        </table>
+            <div class="col-md-8">
+                
+                <h2>レシピ詳細</h2>
+                <!-- 商品画像 -->
+                <%= image_tag @recipe.get_image, size: "50x50" %>
+                
+                <table class="table">
+                    <tr>
+                        <th>レシピ名</th>
+                        <td><%= @recipe.name %></td>
+                    </tr>
+                    
+                    <tr>
+                        <th>料理の具材</th>
+                        <td><%= @recipe.material %></td>
+                    </tr>
+                    
+                    <tr>
+                        <th>レシピの説明</th>
+                        <td><%= @recipe.explanation %></td>
+                    </tr>
+                    
+                    <tr>
+                        <th>製作時間</th>
+                        <td><%= @recipe.time %>分</td>
+                    </tr>
+                    
+                    <tr>
+                        <th>料理のジャンル</th>
+                        <td><%= @recipe.genre %></td>
+                    </tr>
+                    
+                </table>
+                
+                    <% if @recipe.customer == current_customer %> <%= link_to "編集", edit_public_recipe_path(@recipe.id), class: "btn btn-sm btn-success edit_public_recipe_path" %> <% end %> | 
+                    <% if @recipe.customer == current_customer %> <%= link_to "レシピ一覧", public_recipes_path, class: "btn btn-sm btn-secondary public_recipes_path" %> <% end %>
+                
+            </div>    
         
-        <%= link_to "編集", edit_public_recipe_path(@recipe.id) %> |
-        <%= link_to "レシピ一覧", public_recipes_path %>
-        
-        
-    </body>
+        </div>
+        </div>
 </main>

@@ -12,6 +12,37 @@
   </head>
 
   <body>
+    
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+        <div class="container">
+
+          <a class="navbar-brand" href="/"><span class="text-body">Recipes</span></a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if customer_signed_in? %>
+                <li class="nav-item mr-3"><%= link_to public_customer_path(current_customer) do %><i class="fas fa-home text-body"></i><span class="text-body">Home</span><% end %></li>
+                <li class="nav-item mr-3"><%= link_to public_customers_path do %><i class="fa-solid  fas fa-users text-body"></i><span class="text-body">Users</span><% end %></li>
+                <li class="nav-item mr-3"><%= link_to public_recipes_path do %><i class="fa-solid  fas fa-book text-body"></i><span class="text-body">Recipes</span><% end %></li>
+                <li class=><%= link_to customer_unsubscribe_path(current_customer.id) do %><i class="fa-solid  fas fa-sign-out-alt text-body"></i><span class="text-body">Withdrawal</span><% end %></li>
+              <% else %>
+                <li class="nav-item mr-3"><%= link_to root_path do %><i class="fas fa-home text-body"></i><span class="text-body">Home</span><% end %></li>
+                <li class="nav-item mr-3"><%= link_to about_path do %><i class="fas fa-link text-body"></i><span class="text-body">About</span><% end %></li>
+                <li class="nav-item mr-3"><%= link_to new_customer_registration_path do %><i class="fas fa-user-plus text-body"></i><span class="text-body">Sign up</span><% end %></li>
+                <li class="nav-item"><%= link_to new_customer_session_path do %><i class="fas fa-sign-in-alt text-body"></i><span class="text-body">Log in</span><% end %></li>
+              <% end %>
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+    </header>
+    
     <%= yield %>
   </body>
 </html>

@@ -5,7 +5,7 @@
 
       <%= render 'public/recipes/recipe', recipe: @recipe, customer: @customer %>
 
-      <div class="col-md-8 offset-md-1">
+      <div class="col-md-8">
           <h2>Customers</h2>
 
           <table class="table">
@@ -22,7 +22,7 @@
                     <tr>
                         <td><div class="attachment customer image"><%= image_tag customer.get_image, size: "100x100" %></div></td>
                         <td><%= customer.name %></td>
-                        <td><%= link_to "ユーザー詳細", public_customer_path(customer.id) %></td>
+                        <td><%= link_to "ユーザー詳細", public_customer_path(customer.id), class: "btn btn-sm btn-primary" %></td>
                     </tr>
                 <% end %>
               </tbody>

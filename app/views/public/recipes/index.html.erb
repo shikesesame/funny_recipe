@@ -1,35 +1,44 @@
 <main>
-    <body>
+    <p id="notice"></p>
+    <!--エラーメッセージ-->
+    <%= render 'public/recipes/error', recipe: @recipe %>
         
-        <%= render 'public/recipes/recipe', recipe: @recipe, customer: @customer %>
+    <div class="container px-5 px-sm-0">
+        <div class="row">
         
-        <h2>レシピ一覧</h2>
-        
-        <table class="table">
-            <thead>
-                    <tr>
-                        <th>料理画像</th>
-                        <th>レシピ名</th>
-                        <th>料理のジャンル</th>
-                        <th>製作時間</th>
-                        <th></th>
-                    </tr>
-            </thead>
+            <!--投稿フォーム-->
+            <%= render 'public/recipes/recipe', recipe: @recipe, customer: @customer %>
             
-            <tbody>
-                <% @recipes.each do |recipe| %>
-                    <tr>
-                        <th><%= image_tag recipe.get_image %></th>
-                        <th><%= recipe.name %></th>
-                        <th><%= recipe.genre %></th>
-                        <th><%= recipe.time %>分</th>
-                        <th><%= link_to "詳細はこちらから", public_recipe_path(recipe.id) %></th>
-                    </tr>
-                <% end %>
-            </tbody>
+        <div class="col-md-8">    
+            <h2>レシピ一覧</h2>
             
-        </table>
-        
-        
-    </body>
+            <table class="table table-hover table-inverse">
+                <thead>
+                        <tr>
+                            <th>料理画像</th>
+                            <th>レシピ名</th>
+                            <th>料理のジャンル</th>
+                            <th>製作時間</th>
+                            <th></th>
+                        </tr>
+                </thead>
+                
+                <tbody>
+                    <% @recipes.each do |recipe| %>
+                        <tr>
+                            <th><%= image_tag recipe.get_image, size: "50x50" %></th>
+                            <th><%= recipe.name %></th>
+                            <th><%= recipe.genre %></th>
+                            <th><%= recipe.time %>分</th>
+                            <th><%= link_to "詳細はこちらから", public_recipe_path(recipe.id), class: "btn btn-sm btn-primary" %></th>
+                        </tr>
+                    <% end %>
+                </tbody>
+                
+            </table>
+            
+        </div>
+        </div>
+    </div>
+    
 </main>

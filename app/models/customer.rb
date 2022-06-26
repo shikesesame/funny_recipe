@@ -23,4 +23,8 @@ class Customer < ApplicationRecord
     super && (is_deleted == false)
   end
   
+  #バリデーション
+  validates :name, uniqueness: true, length: { maximum: 20, minimum: 2 }
+  validates :body, uniqueness: true, length: { maximum: 50 }
+  
 end

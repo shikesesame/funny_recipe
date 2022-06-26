@@ -12,4 +12,9 @@ class Recipe < ApplicationRecord
     
     # アソシエーション
     belongs_to :customer
+    
+    #バリデーション
+    validates :name, presence: true
+    validates :material, presence: true, length: { maximum: 200 }
+    validates :explanation, presence: true, length: { maximum: 200 }
 end
