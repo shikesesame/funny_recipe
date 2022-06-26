@@ -41,7 +41,7 @@
                 </table>
                 
                     <% if @recipe.customer == current_customer %> <%= link_to "編集", edit_public_recipe_path(@recipe.id), class: "btn btn-sm btn-success edit_public_recipe_path" %> <% end %> | 
-                    <% if @recipe.customer == current_customer %> <%= link_to "レシピ一覧", public_recipes_path, class: "btn btn-sm btn-secondary public_recipes_path" %> <% end %>
+                    <% if @recipe.customer == current_customer %> <%= link_to "削除", public_recipe_path(@recipe.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-sm btn-danger public_recipes_path" %> <% end %>
                 
             </div>    
         

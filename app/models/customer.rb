@@ -25,6 +25,6 @@ class Customer < ApplicationRecord
   
   #バリデーション
   validates :name, uniqueness: true, length: { maximum: 20, minimum: 2 }
-  validates :body, uniqueness: true, length: { maximum: 50 }
+  validates :body, length: { maximum: 50 }
   
 end
