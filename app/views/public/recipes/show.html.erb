@@ -12,6 +12,9 @@
                 <!-- 商品画像 -->
                 <%= image_tag @recipe.get_image, size: "50x50" %>
                 
+                <!--コメント投稿フォーム-->
+                <%= form_with model: [@recipe, @recipe_comment], url: public_recipe_recipe_comments_path(@recipe.id) do |f| %>
+                
                 <table class="table">
                     <tr>
                         <th>レシピ名</th>
@@ -38,7 +41,37 @@
                         <td><%= @recipe.genre %></td>
                     </tr>
                     
+                    <tr>
+                        <% if @recipe.favorited_by?(current_customer) %>
+                            <td><%= link_to public_recipe_favorite_path(@recipe), method: :delete do %>
+                                ♥<%= @recipe.favorites.count %> いいね
+                                <% end %></td>
+                        <% else %>
+                            <td><%= link_to public_recipe_favorites_path(@recipe), method: :post do %>
+                                ♡<%= @recipe.favorites.count %> いいね
+                                <% end %></td>
+                        <% end %>
+                    </tr>
+                    
+                    <tr>
+                        <th><p>コメント件数：<%= @recipe.recipe_comments.count %></p></th>
+                        <% @recipe.recipe_comments.each do |recipe_comment| %>
+                            <td><p><%= image_tag recipe_comment.customer.get_image, size: "100x100" %></p></td>
+                            <td><%= recipe_comment.customer.name %></td>
+                            <td><%= recipe_comment.created_at.strftime('%Y/%m/%d') %></td>
+                            <td><%= recipe_comment.comment %></td>
+                            <td><% if recipe_comment.customer == current_customer %>
+                                    <%= link_to "削除", public_recipe_recipe_comment_path(recipe_comment.recipe, recipe_comment), method: :delete, class: "btn btn-sm btn-danger" %>
+                                <% end %></td>
+                        <% end %>
+                    </tr>
+                    <tr>
+                        <td><%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %></td>
+                        <td><%= f.submit "送信する" %></td>
+                    </tr>
+                    
                 </table>
+                <% end %>
                 
                     <% if @recipe.customer == current_customer %> <%= link_to "編集", edit_public_recipe_path(@recipe.id), class: "btn btn-sm btn-success edit_public_recipe_path" %> <% end %> | 
                     <% if @recipe.customer == current_customer %> <%= link_to "削除", public_recipe_path(@recipe.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-sm btn-danger public_recipes_path" %> <% end %>

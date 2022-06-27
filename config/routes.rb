@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   namespace :public do
-    resources :recipes, only: [:index, :show, :edit, :create, :update, :destroy]
+    resources :recipes, only: [:index, :show, :edit, :create, :update, :destroy] do
+      resources :recipe_comments, only: [:create, :destroy]
+      resources :favorites, only: [:create, :destroy]
+    end
     resources :customers, only: [:index, :show, :edit, :update]
   end
   # 管理用レシピ

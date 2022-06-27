@@ -17,6 +17,8 @@ class Customer < ApplicationRecord
  
   # アソシエーション 
   has_many :recipes, dependent: :destroy
+  has_many :recipe_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   
   # is_deletedがfalseならtrueを返すようにしている
   def active_for_authentication?

@@ -19,6 +19,7 @@
                             <th>レシピ名</th>
                             <th>料理のジャンル</th>
                             <th>製作時間</th>
+                            <th>コメント数</th>
                             <th></th>
                         </tr>
                 </thead>
@@ -30,6 +31,7 @@
                             <th><%= recipe.name %></th>
                             <th><%= recipe.genre %></th>
                             <th><%= recipe.time %>分</th>
+                            <th><%= link_to "#{recipe.recipe_comments.count} コメント", public_recipe_path(recipe.id) %></th>
                             <th><%= link_to "詳細はこちらから", public_recipe_path(recipe.id), class: "btn btn-sm btn-primary" %></th>
                         </tr>
                     <% end %>

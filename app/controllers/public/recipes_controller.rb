@@ -10,6 +10,7 @@ class Public::RecipesController < ApplicationController
     @customer = @recipe.customer
     @recipes = @customer.recipes
     @newrecipe = Recipe.new
+    @recipe_comment = RecipeComment.new
   end
 
   def edit

@@ -10,8 +10,14 @@ class Recipe < ApplicationRecord
         image
     end
     
+    def favorited_by?(customer)
+        favorites.exists?(customer_id: customer.id)
+    end
+    
     # アソシエーション
     belongs_to :customer
+    has_many :recipe_comments, dependent: :destroy
+    has_many :favorites, dependent: :destroy
     
     #バリデーション
     validates :name, presence: true
