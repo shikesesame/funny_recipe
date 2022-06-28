@@ -1,0 +1,9 @@
+<% if recipe.favorited_by?(current_customer) %>
+<td><%= link_to public_recipe_favorite_path(recipe), method: :delete, remote: true do %>
+    ♥<%= recipe.favorites.count %> いいね
+    <% end %></td>
+<% else %>
+<td><%= link_to public_recipe_favorites_path(recipe), method: :post, remote: true do %>
+    ♡<%= recipe.favorites.count %> いいね
+    <% end %></td>
+<% end %>
