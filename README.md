@@ -18,7 +18,7 @@
 ・「あと一品欲しい」と思ったとき
 
 ## 設計書
-仕様検討中
+・https://docs.google.com/spreadsheets/d/1d89nTccLzPwnAi87y27z9GsCu1L41Tib23ZQgv5HJUg/edit?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
