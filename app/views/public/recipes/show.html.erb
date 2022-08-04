@@ -6,11 +6,11 @@
         
             <%= render 'public/recipes/recipe', recipe: @recipe, customer: @customer %>
             
-            <div class="col-md-8">
+            <div class="col-md-8 mx-auto">
                 
                 <h2>レシピ詳細</h2>
                 <!-- 商品画像 -->
-                <%= image_tag @recipe.get_image, size: "50x50" %>
+                <%= image_tag @recipe.get_image, size: "100x100" %>
                 
                 <!--コメント投稿フォーム-->
                 <%= form_with model: [@recipe, @recipe_comment], url: public_recipe_recipe_comments_path(@recipe.id) do |f| %>
